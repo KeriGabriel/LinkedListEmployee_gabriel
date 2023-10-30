@@ -7,8 +7,8 @@
             string[] csvFile = System.IO.File.ReadAllLines(@"C:\Users\Keri Gabriel\Downloads\employees.csv");
             string choice;
             bool isRunning = true;
-            Node Head = new Node(null);
-            Node currentNode = Head;
+            //Node Head = new Node();
+            //Node currentNode = Head;
             Company company = new Company();
 
             var employees = new List<Employee>();
@@ -93,7 +93,7 @@
                 for (int i = 1; i < csvFile.Length; i++)
                 {
                     Employee emp = new Employee(csvFile[i]);
-                    company.addNode(emp.ToString());                   
+                    company.addNode(emp);                   
                 }               
             }
         }

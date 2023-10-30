@@ -8,7 +8,7 @@ namespace LinkedListEmployee_gabriel
 {
     internal class Employee
     {
-        public String Name,age,department, salary, lastName, firstName;
+        public string Name,age,department, salary, lastName, firstName;
         public Employee(string data)
         {
             string[] split_data = data.Split(',');
