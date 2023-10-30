@@ -24,25 +24,26 @@
                         company.print();
                         break;
                     case "2":
-                        Console.WriteLine("2. Find Employee ");
+                        Console.WriteLine("2. Find Employee by Lastname");
+                        Console.WriteLine("Enter Last Name: ");
+                        string lastname = Console.ReadLine();
+                        Console.WriteLine(company.SearchNodeLastName(lastname));
                         // Only the first match will be displayed:
-                        //Employee By Lastname
-                        //Employee By Firstname
-                        //Employee By Department
                         break;
                     case "3":
-                        Console.WriteLine("3. Find Employee ");
+                        Console.WriteLine("3. Find Employee by Firstname ");
                         // Only the first match will be displayed:
-                        //Employee By Lastname
-                        //Employee By Firstname
-                        //Employee By Department
+                        Console.WriteLine("Enter first Name: ");
+                        string firstname = Console.ReadLine();
+                        Console.WriteLine(company.SearchNodeFirstName(firstname));
                         break;
                     case "4":
-                        Console.WriteLine("4. Find Employee ");
+                        Console.WriteLine("4. Find Employee by Department");
                         // Only the first match will be displayed:
-                        //Employee By Lastname
-                        //Employee By Firstname
-                        //Employee By Department
+                        Console.WriteLine("Enter Department Name: ");
+                        string depatment = Console.ReadLine();
+                        Console.WriteLine(company.SearchNodeFirstName(depatment));
+
                         break;
                     case "5":
                         Console.WriteLine("5. Add Employee ");

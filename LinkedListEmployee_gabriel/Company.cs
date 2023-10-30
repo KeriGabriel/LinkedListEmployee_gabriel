@@ -11,6 +11,12 @@ namespace LinkedListEmployee_gabriel
     internal class  Company
     {
         private Node Head;
+        public enum search
+        {
+            _lastName,
+            _firstName,
+            Department
+        }
         public void addNode(string data)
         {
             // create a new node, assign string to node data
@@ -75,27 +81,70 @@ namespace LinkedListEmployee_gabriel
                 current = current.Next;
             }
         }
-        //public 
-        //public string SearchNode(string searchNode)
-        //{
-        //    Node current = Head;
 
-        //    //go through list and search for data string entered and return found Node
-        //    // if not found return search string not found
-        //    while (current != null)
-        //    {
-        //        if (current.Data == searchNode)
-        //        {
-        //            return "Found " + current.Data;
-        //        }
-        //        if (current.Data != searchNode)
-        //        {
-        //            current = current.Next;
-        //        }
-        //        // return searchNode + " Not found";
-        //    }
-        //    return null;
-        //}
+        public string SearchNodeLastName(string searchNode)
+        {
+            Node current = Head;
+            string result = string.Empty;
+            //go through list and search for data string entered and return found Node
+            // if not found return search string not found
+            while (current != null)
+            {
+                if (current.Employee.lastName == searchNode)
+                {
+                    result = "Found " + current.Employee.ToString();
+                    return result;
+                }
+                if (current.Employee.lastName != searchNode)
+                {
+                    result = searchNode + " Not found";
+                    current = current.Next;
+                }               
+            }
+            return result;
+        }
+        public string SearchNodeFirstName(string searchNode)
+        {
+            Node current = Head;
+            string result = string.Empty;
+            //go through list and search for data string entered and return found Node
+            // if not found return search string not found
+            while (current != null)
+            {
+                if (current.Employee.firstName == searchNode)
+                {
+                    result = "Found " + current.Employee.ToString();
+                    return result;
+                }
+                if (current.Employee.firstName != searchNode)
+                {
+                    result = searchNode + " Not found";
+                    current = current.Next;
+                }
+            }
+            return result;
+        }
+        public string SearchNodeDepartment(string searchNode)
+        {
+            Node current = Head;
+            string result = string.Empty;
+            //go through list and search for data string entered and return found Node
+            // if not found return search string not found
+            while (current != null)
+            {
+                if (current.Employee.department == searchNode)
+                {
+                    result = "Found " + current.Employee.ToString();
+                    return result;
+                }
+                if (current.Employee.department != searchNode)
+                {
+                    result = searchNode + " Not found";
+                    current = current.Next;
+                }
+            }
+            return result;
+        }
         public void DeleteNode(string deleteNode)
         {
             // if head is null return, if head data = delete string change head to the next node
