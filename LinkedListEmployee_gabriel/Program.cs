@@ -1,4 +1,6 @@
-﻿namespace LinkedListEmployee_gabriel
+﻿using System.Globalization;
+
+namespace LinkedListEmployee_gabriel
 {
     internal class Program
     {
@@ -27,7 +29,7 @@
                         Console.WriteLine("2. Find Employee by Lastname");
                         Console.WriteLine("Enter Last Name: ");
                         string lastname = Console.ReadLine();
-                        Console.WriteLine(company.SearchNodeLastName(lastname));
+                        Console.WriteLine("\n" + company.SearchNodeLastName(lastname));
                         // Only the first match will be displayed:
                         break;
                     case "3":
@@ -35,14 +37,14 @@
                         // Only the first match will be displayed:
                         Console.WriteLine("Enter first Name: ");
                         string firstname = Console.ReadLine();
-                        Console.WriteLine(company.SearchNodeFirstName(firstname));
+                        Console.WriteLine("\n" + company.SearchNodeFirstName(firstname));
                         break;
                     case "4":
                         Console.WriteLine("4. Find Employee by Department");
                         // Only the first match will be displayed:
                         Console.WriteLine("Enter Department Name: ");
-                        string depatment = Console.ReadLine();
-                        Console.WriteLine(company.SearchNodeFirstName(depatment));
+                        string department = Console.ReadLine();
+                        Console.WriteLine("\n"+company.SearchNodeDepartment(department));
 
                         break;
                     case "5":
@@ -52,7 +54,7 @@
                     case "6":
                         Console.WriteLine("6. Display average employee salary ");
                         
-                        Console.WriteLine();
+                        Console.WriteLine(company.Salary().ToString("C3", CultureInfo.CurrentCulture));
 
                         break;
                     case "7":
@@ -62,6 +64,10 @@
                     case "8":
                         Console.WriteLine("8. Delete Employee");
                         //If duplications, all instances of that firstname/lastname should be deleted
+                        
+                        Console.WriteLine("Enter first and last name");
+                        string deleteNode = Console.ReadLine();
+                        Console.WriteLine(company.DeleteNode(deleteNode));
                         break;
                     case "9":
                         Console.WriteLine("9. Exit");
@@ -94,8 +100,12 @@
                 for (int i = 1; i < csvFile.Length; i++)
                 {
                     Employee emp = new Employee(csvFile[i]);
-                    company.addNode(emp);                   
-                }               
+                                      
+                  company.addNode(emp);
+                   //company.SortedAdd(emp);
+                }
+              
+
             }
         }
     }
