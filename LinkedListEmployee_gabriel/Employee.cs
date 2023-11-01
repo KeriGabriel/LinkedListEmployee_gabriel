@@ -13,14 +13,19 @@ namespace LinkedListEmployee_gabriel
         public decimal salary;
         public Employee(string data)
         {
-            string[] split_data = data.Split(',');
-            Name = split_data[0];            
-            age = split_data[1];
-            //salary = split_data[2];
-            department = split_data[3];
-            SplitName();
-            salary = decimal.Parse(split_data[2], CultureInfo.InvariantCulture);
+            LoadData(data);          
         }
+        public Employee(string age, string department, string lastName, string firstName, string salary) 
+        {
+            this.age = age;
+            this.department = department;
+            this.lastName = lastName;
+            this.firstName = firstName;
+            //this.salary = salary;
+            this.salary = decimal.Parse(salary, CultureInfo.InvariantCulture);
+            this.Name = firstName + " " + lastName;
+        }
+
         private void SplitName()
         {
             string[] Namestrings = Name.Split(' ');
@@ -33,6 +38,16 @@ namespace LinkedListEmployee_gabriel
             {
                 lastName = Namestrings.Last();               
             }
+        }
+        private void LoadData(string data)
+        {
+            string[] split_data = data.Split(',');
+            Name = split_data[0];
+            age = split_data[1];
+            //salary = split_data[2];
+            department = split_data[3];
+            SplitName();
+            salary = decimal.Parse(split_data[2], CultureInfo.InvariantCulture);
         }
         public override string ToString()
         {

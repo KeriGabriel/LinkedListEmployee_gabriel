@@ -258,9 +258,15 @@ namespace LinkedListEmployee_gabriel
 
         public void EditEmployee(string employeeName)
         {
-           Employee e = SearchNodeName(employeeName);
+            Employee e = SearchNodeName(employeeName);
 
 
+        }
+        public Employee AddEmployee(string age, string department, string lastName, string firstName, string salary)
+        {
+            Employee e = new Employee(age, department, lastName, firstName, salary);
+            SortedAdd(e);
+            return e;
         }
     }
 }
