@@ -70,73 +70,51 @@ namespace LinkedListEmployee_gabriel
                 temp.Next = NewNode;
             }            
         }
-        public void SortedAdd(Employee data)
+        public Node SortedAdd(Employee data)
         {
             // create a new node, assign string to node data
             Node NewNode = new Node(data);
             // assign null to next node
             NewNode.Next = null;
-            Node current;
+            Node current = Head;
             // check head
-            if (Head == null )
-            {                
+            if (Head == null)
+            {
                 Head = NewNode;
-                return;
+                return Head;
             }
-            // compare nodes last names
-            //  0 strings are =
-            //  + int 1st string goes after 2nd
-            // - int 1st string goes before 2nd string
-            int result;
-            string _lastnameHead = Head.Employee.lastName.ToString();
-            string _lastnameNewnode = NewNode.Employee.lastName.ToString();
-            result = String.Compare(_lastnameHead, _lastnameNewnode);
-            if (result > 0)
+            if (Head.Employee.lastName.CompareTo(data.lastName) > 0)
             {
-                Node temp = new Node(data);
-                temp = Head;
-                // while temp.next is not null temp = temp.next
-                while (temp.Next != null)
+                Node temp = current;
+                Head = new Node(data);
+                return Head;
+            }
+            while (current != null)
+            {
+                if (current.Employee.lastName.CompareTo(data.lastName) > 0)
                 {
-                    temp = temp.Next;
+                    Node temp = current;
+                    current = new Node(data);
+                    return Head;
                 }
-                //assign newNode to temp.next
-                temp.Next = NewNode;
-                return;
-            }            
-            if (result == 0)
-            {
-                result = String.Compare(Head.Employee.firstName, NewNode.Employee.firstName);
-                
-                if (result > 0)
+                if (current.Employee.lastName.CompareTo(data.lastName) < 0)
                 {
-                    Node temp = new Node(data);
-                    temp = Head;
-                    // while temp.next is not null temp = temp.next
-                    while (temp.Next != null)
+                    if (current.Next == null)
                     {
-                        temp = temp.Next;
+                        current.Next = new Node(data);
+                        return Head;
                     }
-                    //assign newNode to temp.next
-                    temp.Next = NewNode;
-                    return;
+                    if (current.Next.Employee.lastName.CompareTo(data.lastName) > 0)
+                    {
+                        Node a = current.Next;
+                        current.Next = new Node(data);
+                        current.Next.Next = a;
+                    }
                 }
+                current = current.Next;
             }
-            //else
-            //{
-            //    current = Head;
-            //    while (current.Next != null )
-            //    {
-            //        result = String.Compare(Head.Employee.lastName, NewNode.Employee.lastName);
-            //        if (result < 0)
-            //        {
-            //            current = current.Next;
-            //            NewNode.Next = current.Next;
-            //            current.Next = NewNode;
-            //        }
-            //    }
-            //}           
-        }
+            return Head;
+        }         
         public void print()
         {
             Node current = Head;
@@ -210,7 +188,27 @@ namespace LinkedListEmployee_gabriel
             }
             return result;
         }
-
+        public Employee SearchNodeName(string searchNode)
+        {
+            Node current = Head;
+            string result = string.Empty;
+            //go through list and search for data string entered and return found Node
+            // if not found return search string not found
+            while (current != null)
+            {
+                if (current.Employee.Name == searchNode)
+                {
+                    result = "Found " + current.Employee;
+                    return current.Employee;
+                }
+                if (current.Employee.Name != searchNode)
+                {
+                    result = searchNode + " Not found";
+                    current = current.Next;
+                }
+            }
+            return current.Employee;
+        }
         public string DeleteNode(string deleteNode)
         {
             string result = string.Empty;
@@ -247,16 +245,22 @@ namespace LinkedListEmployee_gabriel
         {
             List<decimal> list = new List<decimal>();
             Node current = Head;
-            // go through list and print until list is empty
+            // go through list and add until list is empty
             while (current != null)
-            {
-                //decimal value = decimal.Parse(current.Employee.salary, CultureInfo.InvariantCulture);
-                list.Add(current.Employee.salary);
-                //Console.WriteLine(value);
+            { 
+                list.Add(current.Employee.salary);               
                 current = current.Next;
             }
+            //average of list return result
             decimal result = list.Average();
             return result;
+        }
+
+        public void EditEmployee(string employeeName)
+        {
+           Employee e = SearchNodeName(employeeName);
+
+
         }
     }
 }

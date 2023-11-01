@@ -45,26 +45,21 @@ namespace LinkedListEmployee_gabriel
                         Console.WriteLine("Enter Department Name: ");
                         string department = Console.ReadLine();
                         Console.WriteLine("\n"+company.SearchNodeDepartment(department));
-
                         break;
                     case "5":
                         Console.WriteLine("5. Add Employee ");
                         //adds an employee to the list by sort order of Lastname, Firstname
                         break;
                     case "6":
-                        Console.WriteLine("6. Display average employee salary ");
-                        
+                        Console.WriteLine("6. Display average employee salary ");                       
                         Console.WriteLine(company.Salary().ToString("C3", CultureInfo.CurrentCulture));
-
                         break;
                     case "7":
                         Console.WriteLine("7. Edit Employee ");
                         //All fields are editable and could effect the sort order
                         break;
                     case "8":
-                        Console.WriteLine("8. Delete Employee");
-                        //If duplications, all instances of that firstname/lastname should be deleted
-                        
+                        Console.WriteLine("8. Delete Employee");                 
                         Console.WriteLine("Enter first and last name");
                         string deleteNode = Console.ReadLine();
                         Console.WriteLine(company.DeleteNode(deleteNode));
@@ -101,8 +96,8 @@ namespace LinkedListEmployee_gabriel
                 {
                     Employee emp = new Employee(csvFile[i]);
                                       
-                  company.addNode(emp);
-                   //company.SortedAdd(emp);
+                  //company.addNode(emp);
+                   company.SortedAdd(emp);
                 }
               
 
