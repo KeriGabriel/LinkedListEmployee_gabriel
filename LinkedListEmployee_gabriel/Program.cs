@@ -49,24 +49,8 @@ namespace LinkedListEmployee_gabriel
                         break;
                     case "5":
                         Console.WriteLine("5. Add Employee ");
-                        string age;
-                        string _department;
-                        string lastName;
-                        string firstName;
-                        string salary;
-                        //adds an employee to the list by sort order of Lastname, Firstname
-                        Console.WriteLine("Enter Employee age ");
-                        age=Console.ReadLine();
-                        Console.WriteLine("Enter Employee last Name ");
-                        lastName =Console.ReadLine();
-                        Console.WriteLine("Enter Employee first Name ");
-                        firstName =Console.ReadLine();
-                        Console.WriteLine("Enter Employee department ");
-                        _department =Console.ReadLine();
-                        Console.WriteLine("Enter Employee salary ");
-                        salary = Console.ReadLine();
-                        company.AddEmployee(age, _department, lastName, firstName, salary);
-                        load();
+                        AddEmployee();
+
                         break;
                     case "6":
                         Console.WriteLine("6. Display average employee salary ");                       
@@ -75,7 +59,11 @@ namespace LinkedListEmployee_gabriel
                     case "7":
                         Console.WriteLine("7. Edit Employee ");
                         //All fields are editable and could effect the sort order
-                        
+                        Console.WriteLine("Enter first and last name");
+                        string Name = Console.ReadLine();
+                        Employee Edit = company.SearchNodeName(Name);
+                        Console.WriteLine(Edit);
+                        changeEmployee(Edit);
                         break;
                     case "8":
                         Console.WriteLine("8. Delete Employee");                 
@@ -118,6 +106,49 @@ namespace LinkedListEmployee_gabriel
                   //company.addNode(emp);
                    company.SortedAdd(emp);
                 }
+            }
+            void AddEmployee()
+            {
+                string age;
+                string _department;
+                string lastName;
+                string firstName;
+                string salary;
+                //adds an employee to the list by sort order of Lastname, Firstname
+                Console.WriteLine("Enter Employee age ");
+                age = Console.ReadLine();
+                Console.WriteLine("Enter Employee last Name ");
+                lastName = Console.ReadLine();
+                Console.WriteLine("Enter Employee first Name ");
+                firstName = Console.ReadLine();
+                Console.WriteLine("Enter Employee department ");
+                _department = Console.ReadLine();
+                Console.WriteLine("Enter Employee salary ");
+                salary = Console.ReadLine();
+                company.AddEmployee(age, _department, lastName, firstName, salary);
+                load();
+            }
+            void changeEmployee(Employee employee)
+            {
+                
+                string age;
+                string _department;
+                string lastName;
+                string firstName;
+                string salary;
+                //adds an employee to the list by sort order of Lastname, Firstname
+                Console.WriteLine("Enter Employee age ");
+                age = Console.ReadLine();
+                Console.WriteLine("Enter Employee last Name ");
+                lastName = Console.ReadLine();
+                Console.WriteLine("Enter Employee first Name ");
+                firstName = Console.ReadLine();
+                Console.WriteLine("Enter Employee department ");
+                _department = Console.ReadLine();
+                Console.WriteLine("Enter Employee salary ");
+                salary = Console.ReadLine();
+                company.AddEmployee(age, _department, lastName, firstName, salary);
+                load();
             }
         }
     }

@@ -14,12 +14,6 @@ namespace LinkedListEmployee_gabriel
     internal class  Company
     {
         private Node Head;
-        public enum search
-        {
-            _lastName,
-            _firstName,
-            Department
-        }
         public void addNode(string data)
         {
             // create a new node, assign string to node data
@@ -240,7 +234,6 @@ namespace LinkedListEmployee_gabriel
                 }           
             return result;
         }     
-
         public decimal Salary()
         {
             List<decimal> list = new List<decimal>();
@@ -255,7 +248,6 @@ namespace LinkedListEmployee_gabriel
             decimal result = list.Average();
             return result;
         }
-
         public void EditEmployee(string employeeName)
         {
             Employee e = SearchNodeName(employeeName);
