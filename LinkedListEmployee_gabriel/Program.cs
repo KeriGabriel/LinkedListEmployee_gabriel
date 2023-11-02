@@ -7,13 +7,13 @@ namespace LinkedListEmployee_gabriel
     {
         static void Main(string[] args)
         {
-            string[] csvFile = System.IO.File.ReadAllLines(@"C:\Users\Keri Gabriel\Downloads\employees.csv");
+            string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.Parent.ToString();
+            string gp = path+ @"\employees.csv";
+            string[] csvFile = System.IO.File.ReadAllLines(gp);
             string choice;
             bool isRunning = true;
-            //Node Head = new Node();
-            //Node currentNode = Head;
-            Company company = new Company();
 
+            Company company = new Company();
             var employees = new List<Employee>();
             var c = new List<Company>();
             load();
@@ -129,8 +129,7 @@ namespace LinkedListEmployee_gabriel
                 load();
             }
             void changeEmployee(Employee employee)
-            {
-                
+            {              
                 string age;
                 string _department;
                 string lastName;
