@@ -1,0 +1,16 @@
+You will create a notepad file called analysis.txt inside a folder with the same name. This file will narrate your choices around approaching this project and how those choices impacted efficiency. Be verbose.
+Probe any edge cases
+
+
+The first thing I did was read through the instructions and what was required for this project. I decided to make a console application because that is what I was most comfortable with and had the most experience using. I feel confident I made the right choice because I did not have to take extra time learning how to manipulate a new application.  
+
+my next step I made my menu with the requirements of the assignment. I then pseudocoded what I wanted to go into each of the options. This helped me think about step by step what I wanted to do. 
+
+From there I decided that my linked list would be the first thing I wanted to work on. I made a company class and started making my linked list code. I reviewed the code we worked on in class and also the code that I had worked on in previous classes. I  made an Employee class at this point as well because that was one of the requirements.  
+
+I decided to hardcode my CVS file at first because it was easier for me, I probably would have done this first if I had to go back. it was not that difficult and something that I needed to change in the end. I feel like I did an extra step for no good reason really. 
+
+once I was comfortable with my linked list I made a print method and assigned it to the menu. this is where I started to run into some trouble and had to mess around with my code quite a bit. 
+
+I then worked down the menu and requirements. 
+
